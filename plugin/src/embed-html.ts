@@ -1,12 +1,8 @@
-import { App, FileSystemAdapter, normalizePath } from "obsidian";
-import { dirname, join } from "path";
 import type { GraphEntry } from "./catalog";
 
 type FsLike = {
   existsSync: (p: string) => boolean;
-  mkdirSync: (p: string, opts: { recursive: boolean }) => void;
-  copyFileSync: (src: string, dest: string) => void;
-  statSync: (p: string) => { mtimeMs: number };
+  readFileSync: (p: string, enc: string) => string;
 };
 
 function getFs(): FsLike | null {
@@ -18,63 +14,36 @@ function getFs(): FsLike | null {
   }
 }
 
-const PLUGIN_ID = "graphify-visualizer";
-
-export type CachedHtml = {
-  vaultRel: string;
-  absPath: string;
-  resourceUrl: string;
+export type EmbeddedHtml = {
+  /** blob: URL — revoke with revokeEmbeddedHtml when leaving the view */
+  url: string;
 };
 
-/** Vault-relative path under the installed plugin folder (symlink-safe). */
-export function cachedHtmlVaultRel(slug: string): string {
-  return normalizePath(
-    `.obsidian/plugins/${PLUGIN_ID}/cache/${slug}/graph.html`,
-  );
-}
-
 /**
- * Copy official graph.html into plugin cache so Obsidian can serve it
- * via getResourcePath (scripts/CDN work under app resource protocol).
+ * Load official graph.html into a blob: URL for iframe.src.
+ * Avoids getResourcePath / FileSystemAdapter instanceof (fragile under Obsidian bundling)
+ * and works for files outside the vault (~/.cache/...).
  */
-export function ensureCachedHtml(
-  app: App,
-  entry: GraphEntry,
-): CachedHtml {
+export function embedHtmlAsBlob(entry: GraphEntry): EmbeddedHtml {
   if (!entry.htmlPath || !entry.hasHtml) {
     throw new Error("No graph.html — run graphify cluster-only first");
   }
-
   const fs = getFs();
   if (!fs) throw new Error("Filesystem unavailable (desktop only)");
-
-  const adapter = app.vault.adapter;
-  if (!(adapter instanceof FileSystemAdapter)) {
-    throw new Error("Desktop filesystem adapter required");
+  if (!fs.existsSync(entry.htmlPath)) {
+    throw new Error(`Missing source HTML: ${entry.htmlPath}`);
   }
+  const html = fs.readFileSync(entry.htmlPath, "utf8");
+  const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+  return { url: URL.createObjectURL(blob) };
+}
 
-  const vaultRel = cachedHtmlVaultRel(entry.slug);
-  const absPath = join(adapter.getBasePath(), vaultRel);
-  const src = entry.htmlPath;
-
-  if (!fs.existsSync(src)) {
-    throw new Error(`Missing source HTML: ${src}`);
-  }
-
-  const destDir = dirname(absPath);
-  fs.mkdirSync(destDir, { recursive: true });
-
-  // Always refresh when source is newer or dest missing
-  let needCopy = !fs.existsSync(absPath);
-  if (!needCopy) {
+export function revokeEmbeddedHtml(url: string | null | undefined): void {
+  if (url && url.startsWith("blob:")) {
     try {
-      needCopy = fs.statSync(src).mtimeMs > fs.statSync(absPath).mtimeMs;
+      URL.revokeObjectURL(url);
     } catch {
-      needCopy = true;
+      /* ignore */
     }
   }
-  if (needCopy) fs.copyFileSync(src, absPath);
-
-  const resourceUrl = adapter.getResourcePath(vaultRel);
-  return { vaultRel, absPath, resourceUrl };
 }

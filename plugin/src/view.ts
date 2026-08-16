@@ -5,13 +5,14 @@ import {
   truncatePath,
   type GraphEntry,
 } from "./catalog";
-import { ensureCachedHtml } from "./embed-html";
+import { embedHtmlAsBlob, revokeEmbeddedHtml } from "./embed-html";
 import { openGraphHtml } from "./open-html";
 
 export const VIEW_TYPE = "graphify-visualizer-view";
 
 export class GraphifyVisualizerView extends ItemView {
   private selected: GraphEntry | null = null;
+  private blobUrl: string | null = null;
 
   constructor(leaf: WorkspaceLeaf) {
     super(leaf);
@@ -30,15 +31,24 @@ export class GraphifyVisualizerView extends ItemView {
   }
 
   async onOpen(): Promise<void> {
+    this.containerEl.addClass("graphify-viz-leaf");
     this.renderCatalog();
   }
 
   async onClose(): Promise<void> {
+    this.clearBlob();
     this.selected = null;
+    this.containerEl.removeClass("graphify-viz-leaf");
     this.contentEl.empty();
   }
 
+  private clearBlob(): void {
+    revokeEmbeddedHtml(this.blobUrl);
+    this.blobUrl = null;
+  }
+
   private renderCatalog(): void {
+    this.clearBlob();
     this.selected = null;
 
     const root = this.contentEl;
@@ -163,6 +173,7 @@ export class GraphifyVisualizerView extends ItemView {
   }
 
   private renderGraph(entry: GraphEntry): void {
+    this.clearBlob();
     this.selected = entry;
 
     const root = this.contentEl;
@@ -190,9 +201,10 @@ export class GraphifyVisualizerView extends ItemView {
 
     const frameWrap = root.createDiv({ cls: "graphify-viz-frame-wrap" });
 
-    let cached;
+    let embedded;
     try {
-      cached = ensureCachedHtml(this.app, entry);
+      embedded = embedHtmlAsBlob(entry);
+      this.blobUrl = embedded.url;
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       frameWrap.createDiv({
@@ -206,11 +218,20 @@ export class GraphifyVisualizerView extends ItemView {
     const iframe = frameWrap.createEl("iframe", {
       cls: "graphify-viz-iframe",
       attr: {
-        src: cached.resourceUrl,
+        src: embedded.url,
         title: `Graphify ${entry.slug}`,
+        // allow-scripts: vis-network + Graphify UI
+        // allow-same-origin: needed for some blob interactions
+        // allow-popups / forms: Graphify controls
         sandbox: "allow-scripts allow-same-origin allow-popups allow-forms",
       },
     });
-    void iframe;
+
+    iframe.addEventListener("error", () => {
+      new Notice(
+        "Embed failed to load — try Open in browser (CDN may be blocked)",
+        8000,
+      );
+    });
   }
 }
