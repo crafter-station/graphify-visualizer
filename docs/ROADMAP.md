@@ -5,7 +5,7 @@ Build order is strict: **see first, refresh second**.
 | Phase | Name | Deliverable | Done when |
 |---|---|---|---|
 | **Scaffold** | Docs + repo | This folder, nested git, architecture docs | ✅ 2026-08-16 |
-| **0** | Plugin boilerplate | `plugin/` with `manifest.json`, `main.ts`, empty `ItemView`, `styles.css`, `package.json`, `tsconfig` | Empty view opens from command palette |
+| **0** | Plugin boilerplate | `plugin/` with `manifest.json`, `main.ts`, empty `ItemView`, `styles.css`, `package.json`, `tsconfig` | ✅ 2026-08-16 — Agentfiles-shaped build; symlink + enabled in vault |
 | **1** | Read-only viewer | Load configured `graph.json` into vis-network | Nodes render; click opens file via `openLinkText` |
 | **2** | Refresh bridge | Button/command runs Graphify CLI / `run-code-only.sh` | JSON updates and view reloads without leaving Obsidian |
 | **3** | UX hardening | Settings UI, loading state, clear errors | Missing CLI / bad path show human messages |
@@ -19,15 +19,17 @@ Build order is strict: **see first, refresh second**.
 - Decisions locked in `DECISIONS.md`
 - No plugin TypeScript yet
 
-### Fase 0 — next
+### Fase 0 — done
 
-Minimal community-plugin shape under `plugin/`:
+Agentfiles-shaped package under `plugin/`:
 
-- Register view + ribbon/command
-- Empty pane with title “Graphify Visualizer”
-- Local build (`esbuild` or equivalent standard)
+- `esbuild` → `main.js`; `manifest.json` (`isDesktopOnly: true`); `styles.css`
+- Ribbon + command **Open Graphify Visualizer**
+- Empty ItemView (“Fase 0 — empty view”)
+- Local symlink: vault `.obsidian/plugins/graphify-visualizer` → `plugin/`
+- Enabled in vault `community-plugins.json`
 
-No CLI wiring yet.
+No CLI / vis-network wiring yet.
 
 ### Fase 1
 

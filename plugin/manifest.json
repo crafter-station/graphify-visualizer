@@ -1,0 +1,10 @@
+{
+	"id": "graphify-visualizer",
+	"name": "Graphify Visualizer",
+	"version": "0.1.0",
+	"minAppVersion": "1.7.2",
+	"description": "Interactive viewer for Graphify CLI graph.json — click a node to open the file in Obsidian.",
+	"author": "TheVeller",
+	"authorUrl": "https://github.com/TheVeller",
+	"isDesktopOnly": true
+}

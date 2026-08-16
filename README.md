@@ -67,8 +67,8 @@ Full write-up: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · decisions: [`do
 | Phase | State |
 |---|---|
 | Scaffold (docs + repo) | Done |
-| Fase 0 — empty ItemView boilerplate | Next |
-| Fase 1 — read-only viewer | Planned |
+| Fase 0 — empty ItemView boilerplate | Done |
+| Fase 1 — read-only viewer | Next |
 | Fase 2 — Refresh → CLI | Planned |
 | Fase 3 — settings + errors | Planned |
 
@@ -76,15 +76,16 @@ Track: [`docs/ROADMAP.md`](docs/ROADMAP.md)
 
 ## Quick start (today)
 
-Repo is **docs-first**. Plugin TypeScript under `plugin/` is not scaffolded yet.
-
 ```bash
 git clone git@github.com:TheVeller/graphify-visualizer.git
-cd graphify-visualizer
-# next: Fase 0 under plugin/ — empty Obsidian ItemView
+cd graphify-visualizer/plugin
+bun install && bun run build
+# symlink plugin/ into <vault>/.obsidian/plugins/graphify-visualizer — see plugin/README.md
 ```
 
-Generate a graph with Graphify / graphify-lupa (outside this repo), then point the future plugin at:
+Enable **Graphify Visualizer** in Obsidian → command **Open Graphify Visualizer**.
+
+Fase 1 will load Graphify cache JSON:
 
 `~/.cache/graphify-lupa/<slug>/graphify-out/graph.json`
 

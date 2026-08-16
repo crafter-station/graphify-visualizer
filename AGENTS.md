@@ -41,9 +41,8 @@ docs/       ← human + agent architecture
 
 ## Done-when (current stage)
 
-Scaffolding complete when:
-
 - [x] Nested folder under `02_Programs/3-Software/graphify-visualizer/`
 - [x] README + ARCHITECTURE + DECISIONS + ROADMAP + AGENTS
-- [x] Nested `git init`
-- [ ] Fase 0: empty ItemView loads in Obsidian (`plugin/`)
+- [x] Nested `git init` + GitHub remote
+- [x] Fase 0: Agentfiles-shaped `plugin/` builds; vault symlink + community-plugins enable
+- [ ] Fase 1: read-only vis-network viewer
