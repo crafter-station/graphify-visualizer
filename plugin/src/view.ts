@@ -23,7 +23,7 @@ export class GraphifyVisualizerView extends ItemView {
   }
 
   getDisplayText(): string {
-    return "Graphify Visualizer";
+    return "Graphify Obsidian Visualizer";
   }
 
   getIcon(): string {
@@ -57,7 +57,7 @@ export class GraphifyVisualizerView extends ItemView {
     root.removeClass("graphify-viz-root-graph");
 
     const header = root.createDiv({ cls: "graphify-viz-header" });
-    header.createEl("h2", { text: "Graphify Visualizer" });
+    header.createEl("h2", { text: "Graphify Obsidian Visualizer" });
     header.createEl("p", {
       cls: "graphify-viz-sub",
       text: "Maps in ~/.cache/graphify-lupa — click a row to embed Graphify’s graph.html.",

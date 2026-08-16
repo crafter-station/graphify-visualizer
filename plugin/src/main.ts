@@ -5,13 +5,13 @@ export default class GraphifyVisualizerPlugin extends Plugin {
 	async onload(): Promise<void> {
 		this.registerView(VIEW_TYPE, (leaf) => new GraphifyVisualizerView(leaf));
 
-		this.addRibbonIcon("git-graph", "Graphify Visualizer", () => {
+		this.addRibbonIcon("git-graph", "Graphify Obsidian Visualizer", () => {
 			void this.activateView();
 		});
 
 		this.addCommand({
 			id: "open",
-			name: "Open Graphify Visualizer",
+			name: "Open Graphify Obsidian Visualizer",
 			callback: () => {
 				void this.activateView();
 			},

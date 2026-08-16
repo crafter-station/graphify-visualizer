@@ -1,6 +1,6 @@
-# Graphify Visualizer — plugin package
+# Graphify Obsidian Visualizer — plugin package
 
-Obsidian plugin source (Agentfiles-shaped toolchain).
+Obsidian plugin source for [Graphify Obsidian Visualizer](../README.md). Companion to [Graphify Labs](https://github.com/Graphify-Labs/graphify) / [graphify.com](https://www.graphify.com).
 
 ## Build
 
@@ -27,9 +27,9 @@ ln -sfn "$PLUGIN_SRC" "$VAULT/.obsidian/plugins/graphify-visualizer"
 Then in Obsidian:
 
 1. Settings → Community plugins → turn off Restricted mode if needed
-2. Enable **Graphify Visualizer**
+2. Enable **Graphify Obsidian Visualizer**
 3. Reload (`Cmd+R`) or restart
-4. Command palette → **Graphify Visualizer: Open Graphify Visualizer**
+4. Command palette → **Open Graphify Visualizer**
 
 ## Layout
 
