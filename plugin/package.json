@@ -1,26 +1,16 @@
 {
 	"name": "graphify-visualizer",
 	"version": "0.1.0",
-	"description": "Obsidian plugin bridge: visualize Graphify CLI graph.json",
 	"main": "main.js",
-	"scripts": {
-		"dev": "node esbuild.config.mjs",
-		"build": "node esbuild.config.mjs production"
-	},
 	"devDependencies": {
 		"@types/node": "^22.0.0",
-		"@types/vis": "^4.21.27",
 		"esbuild": "^0.25.0",
 		"obsidian": "latest",
 		"typescript": "^5.7.0"
 	},
-	"dependencies": {
-		"@egjs/hammerjs": "^2.0.17",
-		"component-emitter": "^2.0.0",
-		"keycharm": "^0.4.0",
-		"uuid": "^14.0.1",
-		"vis-data": "^8.0.5",
-		"vis-network": "^10.1.1",
-		"vis-util": "^6.0.2"
+	"description": "Obsidian plugin bridge: visualize Graphify CLI graph.json",
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "node esbuild.config.mjs production"
 	}
 }

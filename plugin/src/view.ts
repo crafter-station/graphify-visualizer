@@ -1,41 +1,16 @@
 import { ItemView, Notice, WorkspaceLeaf } from "obsidian";
-import { DataSet } from "vis-data";
-import { Network, type Options } from "vis-network";
 import {
   formatUpdated,
   scanCatalog,
   truncatePath,
   type GraphEntry,
 } from "./catalog";
-import { communityColor, loadGraph } from "./graph-data";
+import { ensureCachedHtml } from "./embed-html";
 import { openGraphHtml } from "./open-html";
-import { openSourceFile } from "./open-file";
 
 export const VIEW_TYPE = "graphify-visualizer-view";
 
-const NETWORK_OPTS: Options = {
-  autoResize: true,
-  interaction: { hover: true, tooltipDelay: 120, navigationButtons: true },
-  physics: {
-    // ponytail: barnesHut OK for ~1k nodes; upgrade to forceAtlas2Based if lag
-    barnesHut: { gravitationalConstant: -8000, springLength: 95 },
-    stabilization: { iterations: 120 },
-  },
-  nodes: {
-    shape: "dot",
-    size: 10,
-    font: { size: 12, face: "var(--font-interface)" },
-    borderWidth: 1,
-  },
-  edges: {
-    arrows: { to: { enabled: true, scaleFactor: 0.4 } },
-    color: { opacity: 0.45 },
-    smooth: { type: "continuous", roundness: 0.2 },
-  },
-};
-
 export class GraphifyVisualizerView extends ItemView {
-  private network: Network | null = null;
   private selected: GraphEntry | null = null;
 
   constructor(leaf: WorkspaceLeaf) {
@@ -59,19 +34,11 @@ export class GraphifyVisualizerView extends ItemView {
   }
 
   async onClose(): Promise<void> {
-    this.destroyNetwork();
+    this.selected = null;
     this.contentEl.empty();
   }
 
-  private destroyNetwork(): void {
-    if (this.network) {
-      this.network.destroy();
-      this.network = null;
-    }
-  }
-
   private renderCatalog(): void {
-    this.destroyNetwork();
     this.selected = null;
 
     const root = this.contentEl;
@@ -83,7 +50,7 @@ export class GraphifyVisualizerView extends ItemView {
     header.createEl("h2", { text: "Graphify Visualizer" });
     header.createEl("p", {
       cls: "graphify-viz-sub",
-      text: "Maps in ~/.cache/graphify-lupa — click a row to open in Obsidian.",
+      text: "Maps in ~/.cache/graphify-lupa — click a row to embed Graphify’s graph.html.",
     });
 
     const actions = header.createDiv({ cls: "graphify-viz-actions" });
@@ -120,7 +87,7 @@ export class GraphifyVisualizerView extends ItemView {
 
     for (const entry of entries) {
       const row = list.createDiv({
-        cls: entry.hasJson
+        cls: entry.hasHtml
           ? "graphify-viz-row"
           : "graphify-viz-row is-disabled",
         attr: { tabindex: "0", role: "button" },
@@ -175,9 +142,9 @@ export class GraphifyVisualizerView extends ItemView {
       });
 
       const activate = () => {
-        if (!entry.hasJson || !entry.jsonPath) {
+        if (!entry.hasHtml || !entry.htmlPath) {
           new Notice(
-            `No graph.json — run graphify-lupa extract on a repo`,
+            `No graph.html — run: graphify cluster-only ${entry.cacheDir}`,
             8000,
           );
           return;
@@ -196,7 +163,6 @@ export class GraphifyVisualizerView extends ItemView {
   }
 
   private renderGraph(entry: GraphEntry): void {
-    this.destroyNetwork();
     this.selected = entry;
 
     const root = this.contentEl;
@@ -213,55 +179,38 @@ export class GraphifyVisualizerView extends ItemView {
       text: entry.slug,
     });
 
-    if (entry.hasHtml && entry.htmlPath) {
-      const browserBtn = toolbar.createEl("button", {
-        text: "Open in browser",
+    const browserBtn = toolbar.createEl("button", {
+      text: "Open in browser",
+    });
+    browserBtn.addEventListener("click", () => {
+      void openGraphHtml(entry.htmlPath!).then((err) => {
+        if (err) new Notice(`Could not open graph.html: ${err}`, 8000);
       });
-      browserBtn.addEventListener("click", () => {
-        void openGraphHtml(entry.htmlPath!).then((err) => {
-          if (err) new Notice(`Could not open graph.html: ${err}`, 8000);
-        });
-      });
-    }
+    });
 
-    const canvas = root.createDiv({ cls: "graphify-viz-canvas" });
+    const frameWrap = root.createDiv({ cls: "graphify-viz-frame-wrap" });
 
-    let loaded;
+    let cached;
     try {
-      loaded = loadGraph(entry.jsonPath!);
+      cached = ensureCachedHtml(this.app, entry);
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
-      canvas.setText(`Could not load graph: ${msg}`);
+      frameWrap.createDiv({
+        cls: "graphify-viz-empty",
+        text: `Could not embed graph.html: ${msg}`,
+      });
+      new Notice(`${msg} — use Open in browser`, 8000);
       return;
     }
 
-    const nodes = new DataSet(
-      loaded.nodes.map((n) => ({
-        id: n.id,
-        label: n.label,
-        title: n.title,
-        group: n.group,
-        color: communityColor(n.group),
-        source_file: n.source_file,
-      })),
-    );
-    const edges = new DataSet(loaded.edges);
-
-    this.network = new Network(canvas, { nodes, edges }, NETWORK_OPTS);
-
-    this.network.on("click", (params) => {
-      const id = params.nodes?.[0];
-      if (id == null) return;
-      const node = nodes.get(id) as { source_file?: string } | null;
-      if (!node?.source_file) {
-        new Notice("Node has no source_file", 4000);
-        return;
-      }
-      void openSourceFile(this.app, entry.repoRoot, node.source_file).then(
-        (err) => {
-          if (err) new Notice(`Could not open file: ${err}`, 8000);
-        },
-      );
+    const iframe = frameWrap.createEl("iframe", {
+      cls: "graphify-viz-iframe",
+      attr: {
+        src: cached.resourceUrl,
+        title: `Graphify ${entry.slug}`,
+        sandbox: "allow-scripts allow-same-origin allow-popups allow-forms",
+      },
     });
+    void iframe;
   }
 }

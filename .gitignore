@@ -32,3 +32,6 @@ Thumbs.db
 # Graphify outputs must never land here
 graphify-out/
 **/graph.json
+
+# Session copies of graph.html for Obsidian iframe embed
+plugin/cache/
