@@ -8,7 +8,7 @@
 | **0** | Boilerplate | Empty ItemView, ribbon, command | ✅ 2026-08-16 |
 | **1** | Catalog | List cache slugs + repo path + json/html flags | ✅ 2026-08-16 |
 | **2** | Open standard viz | Button opens `graph.html` in system browser | ✅ 2026-08-16 |
-| **3** | In-Obsidian viewer | vis-network + click → `openLinkText` | Pending |
+| **3** | In-Obsidian viewer | vis-network + click → `openLinkText` | ✅ 2026-08-16 |
 | **4** | Refresh | Desktop subprocess extract / cluster-only | Pending |
 | **5** | UX | Settings (cache root), clear errors | Pending |
 | **6** | Later | Extract wizard, Community publish, Cytoscape | Only if asked |
@@ -32,10 +32,11 @@ Agentfiles-shaped `plugin/`: esbuild, desktop-only manifest, empty view, vault s
 - Missing html → Notice with `graphify cluster-only` hint
 - Rows without html use `is-disabled` styling
 
-### Fase 3
+### Fase 3 — done (in-Obsidian viewer)
 
-- Detail view: NetworkX `nodes`/`links` → vis-network
-- Resolve `source_file` against `.graphify_root`
+- Row click → load `graph.json` into vis-network in the same ItemView
+- Node click → open `repoRoot/source_file` in Obsidian (or OS if outside vault)
+- **Back** + **Open in browser** / row **Browser** button keep Fase 2 path
 
 ### Fase 4
 

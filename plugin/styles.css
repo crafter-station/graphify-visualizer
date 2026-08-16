@@ -109,3 +109,39 @@
   font-size: 0.75rem;
   color: var(--text-faint);
 }
+
+.graphify-viz-browser-btn {
+  font-size: 0.7rem;
+  padding: 1px 8px;
+  cursor: pointer;
+}
+
+.graphify-viz-root-graph {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.graphify-viz-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  flex-shrink: 0;
+}
+
+.graphify-viz-toolbar-title {
+  font-weight: 600;
+  font-family: var(--font-monospace);
+  margin-right: auto;
+}
+
+.graphify-viz-canvas {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  background: var(--background-primary);
+}

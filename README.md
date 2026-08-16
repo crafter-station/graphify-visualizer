@@ -21,8 +21,8 @@
 **Catalog Graphify maps from `~/.cache/graphify-lupa`, then open or navigate them.**  
 The plugin is a **filing cabinet + viewer bridge** — it does not analyze code.
 
-[![Status](https://img.shields.io/badge/status-fase2-16A34A)](docs/ROADMAP.md)
-[![Stack](https://img.shields.io/badge/stack-TypeScript%20%2B%20Obsidian%20API-3b82f6)](docs/DECISIONS.md)
+[![Status](https://img.shields.io/badge/status-fase3-16A34A)](docs/ROADMAP.md)
+[![Stack](https://img.shields.io/badge/stack-TypeScript%20%2B%20Obsidian%20API%20%2B%20vis--network-3b82f6)](docs/DECISIONS.md)
 [![License](https://img.shields.io/badge/license-MIT-047857)](LICENSE)
 
 </div>
@@ -37,7 +37,7 @@ Graphify already cooks graphs in the terminal. This plugin lists them in Obsidia
 |---|---|
 | **Catalog** cache slugs + code root + json/html flags | ✅ Fase 1 |
 | **Open** `graph.html` in system browser | ✅ Fase 2 |
-| **Render** network in Obsidian + click → file | Fase 3 |
+| **Render** network in Obsidian + click → file | ✅ Fase 3 |
 | **Refresh** via CLI subprocess | Fase 4 |
 
 ## What it is not
@@ -69,8 +69,8 @@ Full write-up: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · decisions: [`do
 | Fase 0 — empty ItemView boilerplate | Done |
 | Fase 1 — catalog of cache graphs | Done |
 | Fase 2 — open graph.html | Done |
-| Fase 3 — vis-network in Obsidian | Next |
-| Fase 4 — Refresh → CLI | Planned |
+| Fase 3 — vis-network in Obsidian | Done |
+| Fase 4 — Refresh → CLI | Next |
 
 Track: [`docs/ROADMAP.md`](docs/ROADMAP.md)
 
