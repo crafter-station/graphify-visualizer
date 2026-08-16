@@ -65,14 +65,14 @@ Companion to [Graphify](https://github.com/Graphify-Labs/graphify) by [Graphify 
   <em>Catalog view — pick a cache slug, then embed or open in browser.</em>
 </p>
 
-## 🚫 What it is not
+## What it is not
 
 - Not Obsidian’s built-in note graph
 - Not a vault-wide indexer or second Graphify engine
 - Not tree-sitter / Python analysis (that stays in [upstream Graphify](https://github.com/Graphify-Labs/graphify))
 - Not mobile Refresh (desktop / Electron only)
 
-## 🔗 How the bridge works
+## How the bridge works
 
 <img src="docs/assets/bridge-architecture.png" alt="Bridge architecture: software repo → Graphify CLI → cache → Obsidian embed" width="900"/>
 
@@ -90,7 +90,7 @@ Architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · decisions: [`doc
 
 Install Graphify first (`uv tool install graphifyy` → `graphify install` → `/graphify .` in your assistant). Then use this plugin to browse the resulting maps in Obsidian.
 
-## 📍 Status
+## Status
 
 | Phase | State |
 |---|---|
@@ -119,7 +119,7 @@ Expect maps at:
 
 Details: [`plugin/README.md`](plugin/README.md)
 
-## 🗂️ Repo map
+## Repo map
 
 ```text
 graphify-visualizer/
@@ -131,17 +131,17 @@ graphify-visualizer/
 └── plugin/               # Obsidian plugin (esbuild → main.js)
 ```
 
-## 🏷️ Topics / search keywords
+## Topics / search keywords
 
 `obsidian` · `obsidian-plugin` · `graphify` · `knowledge-graph` · `code-map` · `graph-visualization` · `pkm` · `typescript` · `desktop`
 
-## 🤝 Contributing
+## Contributing
 
 Issues and PRs welcome on docs, bridge UX, and schema mismatches against real `graph.json` / `graph.html`.
 
 Agent rules: [`AGENTS.md`](AGENTS.md)
 
-## 📄 License
+## License
 
 [MIT](LICENSE) — plugin code. Graphify itself is owned by [Graphify Labs](https://github.com/Graphify-Labs/graphify); this repo only embeds their generated `graph.html`.
 
