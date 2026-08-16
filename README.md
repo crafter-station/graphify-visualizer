@@ -18,7 +18,7 @@
 
 # Graphify Obsidian Visualizer
 
-**Browse Graphify knowledge graphs inside Obsidian** — catalog cache maps, embed official `graph.html`, keep Node Info 1:1 with the web viewer.
+**Browse [Graphify](https://www.graphify.com) knowledge graphs inside [Obsidian](https://obsidian.md/)** — catalog cache maps, embed official `graph.html`, keep Node Info 1:1 with the web viewer.
 
 Companion to [Graphify](https://github.com/Graphify-Labs/graphify) by [Graphify Labs](https://www.graphify.com). This plugin is a **viewer bridge** 🗂️ — it does not analyze code.
 
@@ -29,6 +29,16 @@ Companion to [Graphify](https://github.com/Graphify-Labs/graphify) by [Graphify 
 [![License](https://img.shields.io/badge/license-MIT-047857)](LICENSE)
 
 [Website](https://www.graphify.com) · [Upstream CLI / skill](https://github.com/Graphify-Labs/graphify) · [App early access](https://app.graphify.com/login)
+
+### Compatible with
+
+<p>
+  <a href="https://obsidian.md/"><img src="docs/assets/obsidian-badge.png" alt="Obsidian" height="48"/></a>
+  &nbsp;&nbsp;
+  <a href="https://graphify.com/"><img src="docs/assets/graphify-badge.png" alt="Graphify" height="48"/></a>
+</p>
+
+<a href="https://obsidian.md/">Obsidian</a> · <a href="https://graphify.com/">Graphify</a>
 
 <br/>
 
@@ -49,6 +59,12 @@ Companion to [Graphify](https://github.com/Graphify-Labs/graphify) by [Graphify 
 | 🌐 **Browser escape hatch** | One click opens the same HTML in the system browser |
 | 🗂️ **Filing cabinet** | Obsidian indexes and opens maps — Graphify CLI still cooks them |
 
+<p align="center">
+  <img src="docs/assets/catalog-list.png" alt="Catalog of Graphify maps in Obsidian" width="720"/>
+  <br/>
+  <em>Catalog view — pick a cache slug, then embed or open in browser.</em>
+</p>
+
 ## 🚫 What it is not
 
 - Not Obsidian’s built-in note graph
@@ -58,7 +74,7 @@ Companion to [Graphify](https://github.com/Graphify-Labs/graphify) by [Graphify 
 
 ## 🔗 How the bridge works
 
-![Bridge architecture](docs/assets/bridge-architecture.png)
+<img src="docs/assets/bridge-architecture.png" alt="Bridge architecture: software repo → Graphify CLI → cache → Obsidian embed" width="900"/>
 
 <p align="center"><em>Software repo → Graphify CLI → <code>~/.cache/graphify-lupa</code> → this plugin embeds <code>graph.html</code> in Obsidian.</em></p>
 
