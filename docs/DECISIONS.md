@@ -85,3 +85,18 @@ Closed choices for the MVP. Reopen only with explicit human OK.
 **Decision:** `02_Programs/3-Software/graphify-visualizer/` as nested git repo; parent vault gitignores the path until/unless a different integration is chosen.
 
 **Rationale:** Same pattern as other standalone software under `3-Software/`; docs stay next to code; vault root stays clean.
+
+---
+
+## ADR-006 — Catalog-first (maps live in cache, not vault)
+
+**Date:** 2026-08-16  
+**Status:** Accepted
+
+**Context:** Graphify’s default writes `graphify-out/` inside the analyzed repo. graphify-lupa redirects to `~/.cache/graphify-lupa/<slug>/` so Drive/git stay clean. The plugin’s first job is not a blank canvas — it is listing those maps and linking each to its code root.
+
+**Decision:** Ship **catalog UI before** in-app vis-network or browser open. Phase order: Catalog → open `graph.html` → vis-network → CLI refresh → settings.
+
+**Rationale:** Matches how Ignacio already uses Graphify (CLI + browser). Obsidian becomes the filing cabinet over cache, not a second analyzer.
+
+**Alternatives rejected for v1:** Re-analyze vault in-plugin; require graphs inside the vault; skip catalog and jump straight to canvas.

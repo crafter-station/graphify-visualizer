@@ -1,9 +1,9 @@
 {
 	"id": "graphify-visualizer",
 	"name": "Graphify Visualizer",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"minAppVersion": "1.7.2",
-	"description": "Interactive viewer for Graphify CLI graph.json — click a node to open the file in Obsidian.",
+	"description": "Catalog Graphify maps from ~/.cache/graphify-lupa and link them to their code roots.",
 	"author": "TheVeller",
 	"authorUrl": "https://github.com/TheVeller",
 	"isDesktopOnly": true

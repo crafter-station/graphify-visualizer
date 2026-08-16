@@ -18,11 +18,11 @@
 
 ### Graphify Visualizer
 
-**Turn Graphify `graph.json` into a clickable map inside Obsidian.**  
-The plugin is a **viewer bridge** — it does not analyze code.
+**Catalog Graphify maps from `~/.cache/graphify-lupa`, then open or navigate them.**  
+The plugin is a **filing cabinet + viewer bridge** — it does not analyze code.
 
-[![Status](https://img.shields.io/badge/status-scaffolding-yellow)](docs/ROADMAP.md)
-[![Stack](https://img.shields.io/badge/stack-TypeScript%20%2B%20Obsidian%20API%20%2B%20vis--network-3b82f6)](docs/DECISIONS.md)
+[![Status](https://img.shields.io/badge/status-fase1-16A34A)](docs/ROADMAP.md)
+[![Stack](https://img.shields.io/badge/stack-TypeScript%20%2B%20Obsidian%20API-3b82f6)](docs/DECISIONS.md)
 [![License](https://img.shields.io/badge/license-MIT-047857)](LICENSE)
 
 </div>
@@ -31,15 +31,14 @@ The plugin is a **viewer bridge** — it does not analyze code.
 
 ## What it does
 
-Graphify already answers in the terminal (`extract`, `path`, `explain`).  
-This plugin turns the same **code-only** graph into an interactive Obsidian view:
+Graphify already cooks graphs in the terminal. This plugin lists them in Obsidian:
 
-| Capability | MVP intent |
+| Capability | Phase |
 |---|---|
-| **Read** `graph.json` from Graphify cache | Settings path → ItemView |
-| **Render** dependency network | vis-network |
-| **Open** source on node click | `app.workspace.openLinkText` |
-| **Refresh** without leaving Obsidian | Desktop: button → CLI subprocess |
+| **Catalog** cache slugs + code root + json/html flags | ✅ Fase 1 |
+| **Open** `graph.html` in system browser | Fase 2 |
+| **Render** network in Obsidian + click → file | Fase 3 |
+| **Refresh** via CLI subprocess | Fase 4 |
 
 ## What it is not
 
@@ -55,9 +54,9 @@ This plugin turns the same **code-only** graph into an interactive Obsidian view
 ```text
 Software repo
     → Graphify CLI  extract --code-only
-    → ~/.cache/graphify-lupa/<slug>/graphify-out/graph.json
-    → This plugin (ItemView + vis-network)
-    → click node → open file in editor
+    → ~/.cache/graphify-lupa/<slug>/graphify-out/
+    → This plugin (catalog → browser / vis-network)
+    → click node → open file in editor (Fase 3)
 ```
 
 Full write-up: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · decisions: [`docs/DECISIONS.md`](docs/DECISIONS.md)
@@ -68,9 +67,10 @@ Full write-up: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · decisions: [`do
 |---|---|
 | Scaffold (docs + repo) | Done |
 | Fase 0 — empty ItemView boilerplate | Done |
-| Fase 1 — read-only viewer | Next |
-| Fase 2 — Refresh → CLI | Planned |
-| Fase 3 — settings + errors | Planned |
+| Fase 1 — catalog of cache graphs | Done |
+| Fase 2 — open graph.html | Next |
+| Fase 3 — vis-network in Obsidian | Planned |
+| Fase 4 — Refresh → CLI | Planned |
 
 Track: [`docs/ROADMAP.md`](docs/ROADMAP.md)
 
@@ -102,7 +102,7 @@ graphify-visualizer/
 │   ├── ROADMAP.md
 │   └── assets/           # Excalidraw + PNG
 ├── Development-Log/
-└── plugin/               # Obsidian plugin source (empty until Fase 0)
+└── plugin/               # Obsidian plugin (Fase 0 ItemView + esbuild)
 ```
 
 ## Contributing

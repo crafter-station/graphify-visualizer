@@ -1,23 +1,100 @@
-.gv-empty {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: center;
-	gap: 0.5rem;
-	padding: 2rem;
-	height: 100%;
-	box-sizing: border-box;
+.graphify-viz-root {
+  padding: 12px 16px 24px;
+  overflow-y: auto;
 }
 
-.gv-empty__title {
-	margin: 0;
-	font-size: 1.25rem;
-	font-weight: 600;
+.graphify-viz-header h2 {
+  margin: 0 0 4px;
+  font-size: 1.25rem;
 }
 
-.gv-empty__hint {
-	margin: 0;
-	color: var(--text-muted);
-	max-width: 36rem;
-	line-height: 1.45;
+.graphify-viz-sub {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.graphify-viz-actions {
+  margin-bottom: 16px;
+}
+
+.graphify-viz-empty {
+  padding: 24px 8px;
+  color: var(--text-muted);
+  text-align: center;
+  border: 1px dashed var(--background-modifier-border);
+  border-radius: 6px;
+}
+
+.graphify-viz-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.graphify-viz-row {
+  padding: 10px 12px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  cursor: pointer;
+  background: var(--background-secondary);
+}
+
+.graphify-viz-row:hover,
+.graphify-viz-row:focus {
+  outline: none;
+  border-color: var(--interactive-accent);
+  background: var(--background-secondary-alt);
+}
+
+.graphify-viz-row-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.graphify-viz-slug {
+  font-weight: 600;
+  font-family: var(--font-monospace);
+}
+
+.graphify-viz-badges {
+  display: flex;
+  gap: 4px;
+}
+
+.graphify-viz-badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+}
+
+.graphify-viz-badge.is-on {
+  color: var(--text-success);
+  border-color: var(--text-success);
+}
+
+.graphify-viz-badge.is-off {
+  color: var(--text-faint);
+  opacity: 0.7;
+}
+
+.graphify-viz-row-repo {
+  font-size: 0.8rem;
+  font-family: var(--font-monospace);
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.graphify-viz-row-meta {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: var(--text-faint);
 }
