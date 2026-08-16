@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lock
+bun.lockb
+
+# Build
+dist/
+main.js
+main.js.map
+styles.css.map
+data.json
+.hot/
+
+# Obsidian / local
+.obsidian/
+*.log
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Graphify outputs must never land here
+graphify-out/
+**/graph.json
