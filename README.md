@@ -21,7 +21,7 @@ related:
 **Status:** 🟡 Scaffolding (docs + repo; plugin code not started)  
 **Tech stack:** TypeScript · Obsidian API · vis-network · Graphify CLI (external)  
 **Started:** 2026-08-16  
-**Repository:** nested git under `02_Programs/3-Software/graphify-visualizer/` (no remote yet)
+**Repository:** [TheVeller/graphify-visualizer](https://github.com/TheVeller/graphify-visualizer) (private) · local path `02_Programs/3-Software/graphify-visualizer/`
 
 ## What this is
 
