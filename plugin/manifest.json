@@ -1,9 +1,9 @@
 {
 	"id": "graphify-visualizer",
 	"name": "Graphify Visualizer",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"minAppVersion": "1.7.2",
-	"description": "Catalog Graphify maps from ~/.cache/graphify-lupa and link them to their code roots.",
+	"description": "Catalog Graphify maps from ~/.cache/graphify-lupa and open graph.html in the browser.",
 	"author": "TheVeller",
 	"authorUrl": "https://github.com/TheVeller",
 	"isDesktopOnly": true

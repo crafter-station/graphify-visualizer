@@ -5,6 +5,7 @@ import {
   truncatePath,
   type GraphEntry,
 } from "./catalog";
+import { openGraphHtml } from "./open-html";
 
 export const VIEW_TYPE = "graphify-visualizer-view";
 
@@ -79,7 +80,9 @@ export class GraphifyVisualizerView extends ItemView {
 
     for (const entry of entries) {
       const row = list.createDiv({
-        cls: "graphify-viz-row",
+        cls: entry.hasHtml
+          ? "graphify-viz-row"
+          : "graphify-viz-row is-disabled",
         attr: { tabindex: "0", role: "button" },
       });
 
@@ -119,13 +122,16 @@ export class GraphifyVisualizerView extends ItemView {
       });
 
       const activate = () => {
-        const lines = [
-          `slug: ${entry.slug}`,
-          entry.repoRoot ? `repo: ${entry.repoRoot}` : "repo: (missing)",
-          entry.jsonPath ? `json: ${entry.jsonPath}` : "json: missing",
-          entry.htmlPath ? `html: ${entry.htmlPath}` : "html: missing",
-        ];
-        new Notice(lines.join("\n"), 8000);
+        if (!entry.hasHtml || !entry.htmlPath) {
+          new Notice(
+            `No graph.html — run: graphify cluster-only ${entry.cacheDir}`,
+            8000,
+          );
+          return;
+        }
+        void openGraphHtml(entry.htmlPath).then((err) => {
+          if (err) new Notice(`Could not open graph.html: ${err}`, 8000);
+        });
       };
 
       row.addEventListener("click", activate);

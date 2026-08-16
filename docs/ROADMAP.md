@@ -7,7 +7,7 @@
 | **Scaffold** | Docs + repo | Nested git + architecture docs | ✅ 2026-08-16 |
 | **0** | Boilerplate | Empty ItemView, ribbon, command | ✅ 2026-08-16 |
 | **1** | Catalog | List cache slugs + repo path + json/html flags | ✅ 2026-08-16 |
-| **2** | Open standard viz | Button opens `graph.html` in system browser | Pending |
+| **2** | Open standard viz | Button opens `graph.html` in system browser | ✅ 2026-08-16 |
 | **3** | In-Obsidian viewer | vis-network + click → `openLinkText` | Pending |
 | **4** | Refresh | Desktop subprocess extract / cluster-only | Pending |
 | **5** | UX | Settings (cache root), clear errors | Pending |
@@ -23,12 +23,14 @@ Agentfiles-shaped `plugin/`: esbuild, desktop-only manifest, empty view, vault s
 
 - Scan `~/.cache/graphify-lupa/<slug>/graphify-out/`
 - Show slug, code root (`.graphify_root`), mtime, json/html badges
-- Refresh list button; row click → Notice with paths
-- No browser open / vis-network yet (Fase 2–3)
+- Refresh list button; row click → Notice with paths (superseded in Fase 2)
+- No vis-network yet (Fase 3)
 
-### Fase 2
+### Fase 2 — done (open standard viz)
 
-- `electron.shell.openPath` / openExternal on `graph.html`
+- Row click / Enter → `electron.shell.openPath(graph.html)`
+- Missing html → Notice with `graphify cluster-only` hint
+- Rows without html use `is-disabled` styling
 
 ### Fase 3
 

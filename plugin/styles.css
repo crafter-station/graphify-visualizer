@@ -47,6 +47,17 @@
   background: var(--background-secondary-alt);
 }
 
+.graphify-viz-row.is-disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.graphify-viz-row.is-disabled:hover,
+.graphify-viz-row.is-disabled:focus {
+  border-color: var(--background-modifier-border);
+  background: var(--background-secondary);
+}
+
 .graphify-viz-row-title {
   display: flex;
   align-items: center;
