@@ -29,13 +29,13 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "Graphify Visualizer — bridge architecture",
+      "text": "Graphify Obsidian Visualizer \u2014 bridge architecture",
       "fontSize": 28,
       "fontFamily": 3,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Graphify Visualizer — bridge architecture",
+      "originalText": "Graphify Obsidian Visualizer \u2014 bridge architecture",
       "lineHeight": 1.25
     },
     {
@@ -64,13 +64,13 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "Viewer plugin reads Graphify CLI output — it does not analyze code",
+      "text": "Viewer plugin reads Graphify CLI output \u2014 it does not analyze code",
       "fontSize": 16,
       "fontFamily": 3,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Viewer plugin reads Graphify CLI output — it does not analyze code",
+      "originalText": "Viewer plugin reads Graphify CLI output \u2014 it does not analyze code",
       "lineHeight": 1.25
     },
     {
@@ -90,14 +90,22 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 10,
       "version": 1,
       "versionNonce": 10,
       "isDeleted": false,
       "boundElements": [
-        { "id": "txt-repo", "type": "text" },
-        { "id": "a1", "type": "arrow" }
+        {
+          "id": "txt-repo",
+          "type": "text"
+        },
+        {
+          "id": "a1",
+          "type": "arrow"
+        }
       ],
       "updated": 1,
       "link": null,
@@ -155,15 +163,26 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 20,
       "version": 1,
       "versionNonce": 20,
       "isDeleted": false,
       "boundElements": [
-        { "id": "txt-cli", "type": "text" },
-        { "id": "a1", "type": "arrow" },
-        { "id": "a2", "type": "arrow" }
+        {
+          "id": "txt-cli",
+          "type": "text"
+        },
+        {
+          "id": "a1",
+          "type": "arrow"
+        },
+        {
+          "id": "a2",
+          "type": "arrow"
+        }
       ],
       "updated": 1,
       "link": null,
@@ -221,15 +240,26 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 30,
       "version": 1,
       "versionNonce": 30,
       "isDeleted": false,
       "boundElements": [
-        { "id": "txt-json", "type": "text" },
-        { "id": "a2", "type": "arrow" },
-        { "id": "a3", "type": "arrow" }
+        {
+          "id": "txt-json",
+          "type": "text"
+        },
+        {
+          "id": "a2",
+          "type": "arrow"
+        },
+        {
+          "id": "a3",
+          "type": "arrow"
+        }
       ],
       "updated": 1,
       "link": null,
@@ -261,8 +291,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "~/.cache/…\ngraph.json",
-      "originalText": "~/.cache/…\ngraph.json",
+      "text": "~/.cache/\u2026\ngraph.html",
+      "originalText": "~/.cache/\u2026\ngraph.html",
       "fontSize": 16,
       "fontFamily": 3,
       "textAlign": "center",
@@ -287,15 +317,26 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 40,
       "version": 1,
       "versionNonce": 40,
       "isDeleted": false,
       "boundElements": [
-        { "id": "txt-plugin", "type": "text" },
-        { "id": "a3", "type": "arrow" },
-        { "id": "a4", "type": "arrow" }
+        {
+          "id": "txt-plugin",
+          "type": "text"
+        },
+        {
+          "id": "a3",
+          "type": "arrow"
+        },
+        {
+          "id": "a4",
+          "type": "arrow"
+        }
       ],
       "updated": 1,
       "link": null,
@@ -327,8 +368,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "Obsidian plugin\nItemView + vis-network",
-      "originalText": "Obsidian plugin\nItemView + vis-network",
+      "text": "Obsidian plugin\nItemView + iframe embed",
+      "originalText": "Obsidian plugin\nItemView + iframe embed",
       "fontSize": 15,
       "fontFamily": 3,
       "textAlign": "center",
@@ -353,14 +394,22 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 50,
       "version": 1,
       "versionNonce": 50,
       "isDeleted": false,
       "boundElements": [
-        { "id": "txt-open", "type": "text" },
-        { "id": "a4", "type": "arrow" }
+        {
+          "id": "txt-open",
+          "type": "text"
+        },
+        {
+          "id": "a4",
+          "type": "arrow"
+        }
       ],
       "updated": 1,
       "link": null,
@@ -392,8 +441,8 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "openLinkText\n→ editor",
-      "originalText": "openLinkText\n→ editor",
+      "text": "graph.html\n\u2192 Node Info",
+      "originalText": "graph.html\n\u2192 Node Info",
       "fontSize": 16,
       "fontFamily": 3,
       "textAlign": "center",
@@ -418,7 +467,9 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 60,
       "version": 1,
       "versionNonce": 60,
@@ -427,10 +478,27 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "points": [[0, 0], [60, 0]],
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          60,
+          0
+        ]
+      ],
       "lastCommittedPoint": null,
-      "startBinding": { "elementId": "box-repo", "focus": 0, "gap": 1 },
-      "endBinding": { "elementId": "box-cli", "focus": 0, "gap": 1 },
+      "startBinding": {
+        "elementId": "box-repo",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "box-cli",
+        "focus": 0,
+        "gap": 1
+      },
       "startArrowhead": null,
       "endArrowhead": "arrow"
     },
@@ -451,7 +519,9 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 61,
       "version": 1,
       "versionNonce": 61,
@@ -460,10 +530,27 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "points": [[0, 0], [60, 0]],
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          60,
+          0
+        ]
+      ],
       "lastCommittedPoint": null,
-      "startBinding": { "elementId": "box-cli", "focus": 0, "gap": 1 },
-      "endBinding": { "elementId": "box-json", "focus": 0, "gap": 1 },
+      "startBinding": {
+        "elementId": "box-cli",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "box-json",
+        "focus": 0,
+        "gap": 1
+      },
       "startArrowhead": null,
       "endArrowhead": "arrow"
     },
@@ -484,7 +571,9 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 62,
       "version": 1,
       "versionNonce": 62,
@@ -493,10 +582,27 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "points": [[0, 0], [60, 0]],
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          60,
+          0
+        ]
+      ],
       "lastCommittedPoint": null,
-      "startBinding": { "elementId": "box-json", "focus": 0, "gap": 1 },
-      "endBinding": { "elementId": "box-plugin", "focus": 0, "gap": 1 },
+      "startBinding": {
+        "elementId": "box-json",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "box-plugin",
+        "focus": 0,
+        "gap": 1
+      },
       "startArrowhead": null,
       "endArrowhead": "arrow"
     },
@@ -517,7 +623,9 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 63,
       "version": 1,
       "versionNonce": 63,
@@ -526,10 +634,27 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "points": [[0, 0], [60, 0]],
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          60,
+          0
+        ]
+      ],
       "lastCommittedPoint": null,
-      "startBinding": { "elementId": "box-plugin", "focus": 0, "gap": 1 },
-      "endBinding": { "elementId": "box-open", "focus": 0, "gap": 1 },
+      "startBinding": {
+        "elementId": "box-plugin",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "box-open",
+        "focus": 0,
+        "gap": 1
+      },
       "startArrowhead": null,
       "endArrowhead": "arrow"
     },
@@ -559,13 +684,13 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "Refresh (Desktop): plugin button → child_process → CLI → reload JSON",
+      "text": "Refresh (Desktop): plugin button \u2192 child_process \u2192 CLI \u2192 reload JSON",
       "fontSize": 14,
       "fontFamily": 3,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Refresh (Desktop): plugin button → child_process → CLI → reload JSON",
+      "originalText": "Refresh (Desktop): plugin button \u2192 child_process \u2192 CLI \u2192 reload JSON",
       "lineHeight": 1.25
     },
     {
@@ -585,12 +710,19 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 80,
       "version": 1,
       "versionNonce": 80,
       "isDeleted": false,
-      "boundElements": [{ "id": "ev-txt", "type": "text" }],
+      "boundElements": [
+        {
+          "id": "ev-txt",
+          "type": "text"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false
@@ -656,13 +788,13 @@
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "Evidence\n• Motor = existing Graphify CLI\n• JSON stays outside vault (MAK-439)\n• Plugin = ItemView + vis-network\n• No local HTTP API in MVP",
+      "text": "Evidence\n\u2022 Motor = existing Graphify CLI\n\u2022 Artifacts stay outside vault (~/.cache)\n\u2022 Plugin = catalog + embed official graph.html\n\u2022 No local HTTP API in MVP",
       "fontSize": 15,
       "fontFamily": 3,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Evidence\n• Motor = existing Graphify CLI\n• JSON stays outside vault (MAK-439)\n• Plugin = ItemView + vis-network\n• No local HTTP API in MVP",
+      "originalText": "Evidence\n\u2022 Motor = existing Graphify CLI\n\u2022 Artifacts stay outside vault (~/.cache)\n\u2022 Plugin = catalog + embed official graph.html\n\u2022 No local HTTP API in MVP",
       "lineHeight": 1.35
     }
   ],
