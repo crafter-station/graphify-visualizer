@@ -46,7 +46,7 @@ Companion to [Graphify](https://github.com/Graphify-Labs/graphify) by [Graphify 
 
 </div>
 
-## Why this exists
+## ✨ Why this exists + Features
 
 [Graphify](https://github.com/Graphify-Labs/graphify) turns a codebase into a queryable knowledge graph (`graph.html` + `graph.json`). You already open that HTML in a browser.
 
